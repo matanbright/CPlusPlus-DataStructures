@@ -27,6 +27,7 @@ template <typename T> class Stack {
     public: void push(T value);
     public: T pop();
     public: T top() const;
+    public: Stack<T>* clone();
     public: void clear();
 };
 

@@ -33,6 +33,20 @@ template <typename T> T Stack<T>::top() const {
     return firstNode->getValue();
 }
 
+template <typename T> Stack<T>* Stack<T>::clone() {
+    Stack<T>* reverseClone = new Stack<T>();
+    Node<T>* currentNode = firstNode;
+    while (currentNode != nullptr) {
+        reverseClone->push(currentNode->getValue());
+        currentNode = currentNode->getNext();
+    }
+    Stack<T>* clone = new Stack<T>();
+    while (reverseClone->getLength() > 0)
+        clone->push(reverseClone->pop());
+    delete reverseClone;
+    return clone;
+}
+
 template <typename T> void Stack<T>::clear() {
     while (firstNode != nullptr) {
         Node<T>* removedNode = firstNode;

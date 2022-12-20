@@ -28,6 +28,7 @@ template <typename T> class Queue {
     public: void insert(T value);
     public: T remove();
     public: T head() const;
+    public: Queue<T>* clone();
     public: void clear();
 };
 

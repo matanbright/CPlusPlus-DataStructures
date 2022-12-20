@@ -40,6 +40,7 @@ template <typename T> class LinkedList {
     public: T remove();
     public: T remove(T value);
     public: T removeAt(int index);
+    public: LinkedList<T>* clone();
     public: void clear();
 };
 

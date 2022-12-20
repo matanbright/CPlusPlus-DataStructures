@@ -116,6 +116,16 @@ template <typename T> T LinkedList<T>::removeAt(int index) {
     return value;
 }
 
+template <typename T> LinkedList<T>* LinkedList<T>::clone() {
+    LinkedList<T>* clone = new LinkedList<T>();
+    BinNode<T>* currentBinNode = firstBinNode;
+    while (currentBinNode != nullptr) {
+        clone->add(currentBinNode->getValue());
+        currentBinNode = currentBinNode->getRight();
+    }
+    return clone;
+}
+
 template <typename T> void LinkedList<T>::clear() {
     while (firstBinNode != nullptr) {
         BinNode<T>* removedBinNode = firstBinNode;

@@ -45,6 +45,16 @@ template <typename T> T Queue<T>::head() const {
     return lastBinNode->getValue();
 }
 
+template <typename T> Queue<T>* Queue<T>::clone() {
+    Queue<T>* clone = new Queue<T>();
+    BinNode<T>* currentBinNode = lastBinNode;
+    while (currentBinNode != nullptr) {
+        clone->insert(currentBinNode->getValue());
+        currentBinNode = currentBinNode->getLeft();
+    }
+    return clone;
+}
+
 template <typename T> void Queue<T>::clear() {
     while (firstBinNode != nullptr) {
         BinNode<T>* removedBinNode = firstBinNode;

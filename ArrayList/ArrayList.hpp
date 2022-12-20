@@ -37,6 +37,7 @@ template <typename T> class ArrayList {
     public: T remove();
     public: T remove(T value);
     public: T removeAt(int index);
+    public: ArrayList<T>* clone();
     public: void clear();
 };
 

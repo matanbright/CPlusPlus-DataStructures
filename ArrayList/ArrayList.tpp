@@ -79,6 +79,13 @@ template <typename T> T ArrayList<T>::removeAt(int index) {
     return value;
 }
 
+template <typename T> ArrayList<T>* ArrayList<T>::clone() {
+    ArrayList<T>* clone = new ArrayList<T>();
+    for (int i = 0; i < length; i++)
+        clone->add(arr[i]);
+    return clone;
+}
+
 template <typename T> void ArrayList<T>::clear() {
     if (arr != nullptr) {
         delete [] arr;
