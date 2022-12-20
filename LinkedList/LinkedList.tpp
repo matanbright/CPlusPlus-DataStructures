@@ -73,6 +73,21 @@ template <typename T> T LinkedList<T>::remove() {
     return removeAt(length - 1);
 }
 
+template <typename T> T LinkedList<T>::remove(T value) {
+    int firstIndexOfValue = -1;
+    BinNode<T>* currentBinNode = firstBinNode;
+    for (int i = 0; currentBinNode != nullptr; i++) {
+        if (currentBinNode->getValue() == value) {
+            firstIndexOfValue = i;
+            break;
+        }
+        currentBinNode = currentBinNode->getRight();
+    }
+    if (firstIndexOfValue < 0)
+        throw ValueNotFoundException();
+    return removeAt(firstIndexOfValue);
+}
+
 template <typename T> T LinkedList<T>::removeAt(int index) {
     if (index < 0 || index >= length)
         throw IndexOutOfBoundariesException();

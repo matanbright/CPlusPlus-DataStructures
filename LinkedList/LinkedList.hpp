@@ -18,6 +18,13 @@ template <typename T> class LinkedList {
         }
     };
 
+    public: class ValueNotFoundException : public exception {
+        private: const char* const EXCEPTION_MESSAGE = "Error: Value is not found in the list!";
+        public: const char* what() const noexcept override {
+            return EXCEPTION_MESSAGE;
+        }
+    };
+
     private: BinNode<T>* firstBinNode;
     private: BinNode<T>* lastBinNode;
     private: int length;
@@ -31,6 +38,7 @@ template <typename T> class LinkedList {
     public: void add(T value);
     public: void addAt(int index, T value);
     public: T remove();
+    public: T remove(T value);
     public: T removeAt(int index);
     public: void clear();
 };

@@ -47,6 +47,19 @@ template <typename T> T ArrayList<T>::remove() {
     return removeAt(length - 1);
 }
 
+template <typename T> T ArrayList<T>::remove(T value) {
+    int firstIndexOfValue = -1;
+    for (int i = 0; i < length; i++) {
+        if (arr[i] == value) {
+            firstIndexOfValue = i;
+            break;
+        }
+    }
+    if (firstIndexOfValue < 0)
+        throw ValueNotFoundException();
+    return removeAt(firstIndexOfValue);
+}
+
 template <typename T> T ArrayList<T>::removeAt(int index) {
     if (index < 0 || index >= length)
         throw IndexOutOfBoundariesException();
